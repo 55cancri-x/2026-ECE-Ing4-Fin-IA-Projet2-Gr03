@@ -6,10 +6,10 @@
 
 ## 1. Architecture du Code
 
-Le projet est structuré en 6 modules indépendants dans le dossier `src/`. Chaque module a une responsabilité unique et bien définie, ce qui facilite la maintenance et les tests. Les modules s'appellent les uns les autres de façon linéaire : les données sont d'abord chargées, puis les statistiques calculées, puis le modèle appliqué.
+Le projet est structuré en 7 modules indépendants dans le dossier `src/`. Chaque module a une responsabilité unique et bien définie, ce qui facilite la maintenance et les tests. Tous les paramètres sont centralisés dans `config.py` — c'est le seul fichier à modifier pour changer les actifs, les dates, les views ou les contraintes.
 
 ```
-data.py → stats.py → markowitz.py → black_litterman.py → ml_views.py / backtest.py
+config.py → data.py → stats.py → markowitz.py → black_litterman.py → ml_views.py / backtest.py
 ```
 
 ---
@@ -224,6 +224,7 @@ Résultat attendu : **30 tests passent** en moins de 2 secondes.
 | Méthode d'optimisation | SLSQP | Robuste pour les problèmes quadratiques sous contraintes |
 | Tau (τ) | 0.05 | Valeur standard dans la littérature Black-Litterman |
 | Delta (δ) | 2.5 | Aversion au risque typique d'un investisseur institutionnel |
+| Max weight | 40% | Limite par actif pour éviter la concentration totale sur un seul actif |
 | Fenêtre momentum | 63 jours | ~3 mois, fenêtre standard dans la littérature momentum |
 | Fenêtre d'entraînement | 252 jours | 1 an, suffisant pour estimer la covariance stablement |
 | Fréquence de rééquilibrage | 21 jours | ~1 mois, bon compromis entre réactivité et coûts |
