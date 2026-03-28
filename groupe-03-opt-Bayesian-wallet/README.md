@@ -2,8 +2,6 @@
 
 **Groupe 03 | ECE Paris 2026 | Difficulté : 3/5 | Domaine : Probabilités, Machine Learning**
 
-
-**Ilhan Taskin - Farhan Morisson - Stevenson Leveille**
 ---
 
 ## Contexte & Problème
